@@ -35,12 +35,21 @@ df.rename(columns={'SEX': 'sex', 'RACE_DESC': 'race'}, inplace=True)
 
 # drop the columns we don't need
 df = df.drop(columns=['Details', 'RELEASE_DATE', 'ADMITTED_DATE', 'CONTROL_NUMBER', 'DATE_OF_BIRTH', 'Inmate Name'])
-print(df)
 
 # subset yesterday's date (so when we append, we won't duplicate. We will only add one date at a time.
 df = df[(df['arrest'] > pd.Timestamp(datetime.datetime.today().date()) - datetime.timedelta(1)) & (df['arrest'] < pd.Timestamp(datetime.datetime.today().date()))]
 
-df.to_csv('./arrests.csv')
+# sort by time
+df.sort_values(by=['arrest'], inplace=True)
 
-# with open('arrests.csv', 'a') as f:
-#     df.to_csv(f, header=False)
+df.reset_index(inplace=True)
+df.index += pd.read_csv("./arrests.csv")['Unnamed: 0'].max() + 1
+
+df = df.drop(columns=['index'])
+
+print(df)
+
+#df.to_csv('./arrests.csv')
+
+with open('arrests.csv', 'a') as f:
+    df.to_csv(f, header=False)
