@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/pconwell/dcso_arrests.svg?branch=master)](https://travis-ci.org/pconwell/dcso_arrests)
+
 # dcso_arrests
 
 ## Intro
