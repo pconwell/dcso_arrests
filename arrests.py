@@ -60,3 +60,10 @@ if os.path.isfile('./arrests.csv') is True:
 else:
     print('file does not exists, creating...')
     df.to_csv('./arrests.csv')
+
+# check for travis-ci to see what data is showing up during testing
+print('***** df *****')
+print(df)
+
+print('***** csv *****')
+print(pd.read_csv("./arrests.csv"))
