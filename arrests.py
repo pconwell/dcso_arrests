@@ -51,6 +51,13 @@ df.index += pd.read_csv("./arrests.csv")['Unnamed: 0'].max() + 1
 # drops the index column which gets generated from the OLD index numbers when the index is reset above
 df = df.drop(columns=['index'])
 
+# check for travis-ci to see what data is showing up during testing
+print('***** df before *****')
+print(df.head())
+
+print('***** csv before *****')
+print(pd.read_csv("./arrests.csv").head())
+
 # check if the csv file already exists. If not, create a new one. If it exists, append to the existing one.
 if os.path.isfile('./arrests.csv') is True:
     print('file exists, appending...')
@@ -62,8 +69,8 @@ else:
     df.to_csv('./arrests.csv')
 
 # check for travis-ci to see what data is showing up during testing
-print('***** df *****')
-print(df)
+print('***** df after *****')
+print(df.head())
 
-print('***** csv *****')
-print(pd.read_csv("./arrests.csv"))
+print('***** csv after *****')
+print(pd.read_csv("./arrests.csv").head())
