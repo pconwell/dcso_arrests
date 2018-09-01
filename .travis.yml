@@ -17,4 +17,4 @@ install:
   - pip insatll lxml
 
 script:
-  - python ./arrests
+  - python ./arrests.py
