@@ -22,7 +22,9 @@ $ docker run -rm --volume "/home/pconwell/dcso_arrests/:/data" arrests
 
 ### 4. (optional) Run docker image as cron
 
-run the docker image as a crontab so that the information is updated once per day.
+run the docker image as a crontab so that the information is updated once per day at 0630 (or whatever time)
+
+`30 6 * * * docker run --rm --volume "/home/pconwell/dcso_arrests/:/data" arrests`
 
 
 
