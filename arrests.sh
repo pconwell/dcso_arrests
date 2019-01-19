@@ -1,10 +1,10 @@
 #!/bin/bash
 
-python3 arrests.py
+python3 /app/app.py
 
 ## Set your github username and token
 user=pconwell
-token=<token here>
+token=[github token here]
 repo=dcso_arrests
 file=arrests.csv
 
@@ -17,7 +17,7 @@ github_file='"'`curl --silent --no-buffer --request GET --user "$user:$token" ht
 github_hash='"'`curl  https://api.github.com/repos/$user/$repo/contents/$file | grep sha | cut -d '"' -f4`'"'
 
 ## Create a base64 version of the current config file (to check against $github_file and also upload if there are changes)
-local_file='"'`cat /home/ec2-user/arrests/$file | base64 | tr -d '\n'`'"'
+local_file='"'`cat /data/$file | base64 | tr -d '\n'`'"'
 
 ## Check if local version is same as github version
 if [ "$github_file" == "$local_file" ];
@@ -25,12 +25,12 @@ if [ "$github_file" == "$local_file" ];
 ## If the versions are the same, print "true" (this isn't necessarily important, but can be output to a log, for example)
 then
 
-        echo true;
+	echo true;
 
 ## If the versions are different, upload the new version to github
 else
 
-        DATA='{"message": "updated arrests records", "content": '"$local_file"', "sha": '"$github_hash"'}'
+        DATA='{"message": "update", "content": '"$local_file"', "sha": '"$github_hash"'}'
         echo $DATA  | curl -X PUT -u "$user:$token" -d @- https://api.github.com/repos/$user/$repo/contents/$file
 
 fi
