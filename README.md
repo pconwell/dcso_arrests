@@ -3,19 +3,34 @@
 # dcso_arrests
 
 ## docker
-> ignore the below sections for now
 
+### 1. Clone this repo
 ```
 $ git clone git@github.com:pconwell/dcso_arrests.git
+```
+
+### 2. edit arrests.sh
+
+Edit arrests.sh with your github credentials.
+
+### 3. build and run docker image
+
+```
 $ docker build --tag=arrests .
 $ docker run -rm --volume "/home/pconwell/.arrestdata:/data" arrests
 ```
 
-After `git clone` and before `docker build` you will need to modify `arrests.sh` with your github credentials.
+### 4. (optional) Run docker image as cron
 
-and if you want to run it daily, set up the `docker run` command as a crontab.
+run the docker image as a crontab so that the information is updated once per day.
 
 
+
+----
+
+> ignore everything below this for now
+
+----
 
 
 
