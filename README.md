@@ -17,7 +17,7 @@ Edit arrests.sh with your github credentials.
 
 ```
 $ docker build --tag=arrests .
-$ docker run -rm --volume "/home/pconwell/.arrestdata:/data" arrests
+$ docker run -rm --volume "/home/pconwell/dcso_arrests/:/data" arrests
 ```
 
 ### 4. (optional) Run docker image as cron
