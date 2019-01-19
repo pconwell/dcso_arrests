@@ -4,7 +4,7 @@ python3 /app/app.py
 
 ## Set your github username and token
 user=pconwell
-token=[github token here]
+token=015e979256bbb90484f362cd24b25f181ac793d2
 repo=dcso_arrests
 file=arrests.csv
 
