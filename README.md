@@ -5,9 +5,11 @@
 ## docker
 > ignore the below sections for now
 
-`$ git clone git@github.com:pconwell/dcso_arrests.git`
-`$ docker build --tag=arrests .`
-`$ docker run -rm --volume "/home/pconwell/.arrestdata:/data" arrests`
+```
+$ git clone git@github.com:pconwell/dcso_arrests.git
+$ docker build --tag=arrests .
+$ docker run -rm --volume "/home/pconwell/.arrestdata:/data" arrests
+```
 
 After `git clone` and before `docker build` you will need to modify `arrests.sh` with your github credentials.
 
