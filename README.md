@@ -2,6 +2,21 @@
 
 # dcso_arrests
 
+## docker
+> ignore the below sections for now
+
+`$ git clone git@github.com:pconwell/dcso_arrests.git`
+`$ docker build --tag=arrests .`
+`$ docker run -rm --volume "/home/pconwell/.arrestdata:/data" arrests`
+
+After `git clone` and before `docker build` you will need to modify `arrests.sh` with your github credentials.
+
+and if you want to run it daily, set up the `docker run` command as a crontab.
+
+
+
+
+
 ## Intro
 
 This is a simple script that will scrape the daily arrests in Nashville, TN (Davidson County Sheriffs Office). The data is scraped from the [DCSO website](http://dcso.nashville.gov/Search/RecentBookings). The website only shows arrests over the past 48 hours (technically the previous 2 full days and the partial current day), and there is no easy way to look up arrests older than 48 hours. This script scrapes, cleans and sorts YESTERDAYS arrests then adds them to a csv file. We can then search the csv file to potentially locate arrests from any arbitrary date for which this script was run.
