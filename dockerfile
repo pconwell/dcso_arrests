@@ -5,7 +5,6 @@ RUN apt-get update && apt-get install -y \
 curl \
 jq
 
-
 # Set the working directory to /app
 WORKDIR /app
 
@@ -17,12 +16,8 @@ RUN pip install --trusted-host pypi.python.org -r requirements.txt
 
 RUN chmod 777 arrests.sh
 
-# Define environment variable
-#ENV github_key="asdf"
-
 # make data persistant
 VOLUME ["/data"]
 
 # Run app.py when the container launches
-#CMD ["python", "app.py"]
 CMD /app/arrests.sh
