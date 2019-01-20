@@ -17,4 +17,4 @@ before_install:
   - docker build --tag=arrests .
 
 script:
-  - docker run --rm -e GITHUB_USER=var1 -e GITHUB_KEY=var2 --volume "/home/travis/dcso_arrests/:/data" arrests
+  - docker run --rm -e GITHUB_USER=$var1 -e GITHUB_KEY=$var2 --volume "/home/travis/dcso_arrests/:/data" arrests
