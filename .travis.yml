@@ -4,17 +4,17 @@ dist: trusty
 language: python
 
 python:
-  - "3.6"
+  - "3.7"
 
 branches:
   only:
   - master
-
-install:
-  - pip install requests
-  - pip install bs4
-  - pip install pandas
-  - pip install lxml
+  
+services:
+  - docker
+  
+before_install:
+  - docker build --tag=arrests .
 
 script:
-  - python ./app.py
+  - /app/arrests.sh
