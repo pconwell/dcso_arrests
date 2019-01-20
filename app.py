@@ -47,8 +47,8 @@ df.sort_values(by=['arrest'], inplace=True)
 # this will reset the index to whatever the last row number is in the existing csv file
 df.reset_index(inplace=True)
 
-if os.path.isfile("/data/arrests.csv"):
-    df.index += pd.read_csv("/data/arrests.csv")['Unnamed: 0'].max() + 1
+if os.path.isfile("/app/arrests.csv"):
+    df.index += pd.read_csv("/app/arrests.csv")['Unnamed: 0'].max() + 1
 else:
     pass
 
@@ -56,12 +56,12 @@ else:
 df = df.drop(columns=['index'])
 
 # check if the csv file already exists. If not, create a new one. If it exists, append to the existing one.
-if os.path.isfile('/data/arrests.csv') is True:
+if os.path.isfile('/app/arrests.csv') is True:
     print('file exists, appending...')
-    with open('/data/arrests.csv', 'a') as f:
+    with open('/app/arrests.csv', 'a') as f:
         df.to_csv(f, header=False)
 
 else:
     print('file does not exists, creating...')
     print(df)
-    df.to_csv('/data/arrests.csv')
+    df.to_csv('/app/arrests.csv')
