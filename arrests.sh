@@ -19,7 +19,7 @@ github_file='"'`curl --silent --no-buffer --request GET --user "$user:$token" ht
 github_hash='"'`curl  https://api.github.com/repos/$user/$repo/contents/$file | grep sha | cut -d '"' -f4`'"'
 
 ## Create a base64 version of the current config file (to check against $github_file and also upload if there are changes)
-local_file='"'`cat /data/$file | base64 | tr -d '\n'`'"'
+local_file='"'`cat /app/$file | base64 | tr -d '\n'`'"'
 
 ## Check if local version is same as github version
 if [ "$github_file" == "$local_file" ];
