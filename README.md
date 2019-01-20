@@ -17,16 +17,19 @@ Edit arrests.sh with your github credentials.
 
 ```
 $ docker build --tag=arrests .
-$ docker run -rm --volume "/home/pconwell/dcso_arrests/:/data" arrests
+$ docker run --rm -e GITHUB_USER=user -e GITHUB_KEY=token --volume "/home/pconwell/dcso_arrests/:/data" arrests
 ```
 
 ### 4. (optional) Run docker image as cron
 
 run the docker image as a crontab so that the information is updated once per day at 0630 (or whatever time)
 
-`30 6 * * * docker run --rm --volume "/home/pconwell/dcso_arrests/:/data" arrests`
+`30 6 * * * docker run --rm -e GITHUB_USER=user -e GITHUB_KEY=token --volume "/home/pconwell/dcso_arrests/:/data" arrests`
 
 
+
+#### Note on GITHUB token
+This will depend on your specific setup, but if you follow the instructions here and your repo is public, you should only need 2 permissions on your key: `public_repo` and `read:public_key`.
 
 ----
 
