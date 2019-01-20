@@ -21,8 +21,5 @@ RUN chmod 777 arrests.sh
 ENV GITHUB_KEY 1234
 ENV GITHUB_USER abcd
 
-# make data persistant
-VOLUME ["/data"]
-
 # Run script when the container launches
 CMD /app/arrests.sh $GITHUB_USER $GITHUB_KEY
