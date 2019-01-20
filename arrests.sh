@@ -3,8 +3,10 @@
 python3 /app/app.py
 
 ## Set your github username and token
-user=pconwell
-token=015e979256bbb90484f362cd24b25f181ac793d2
+## $1 and $2 get passed at the command line
+## ./arrests.sh user key
+user=$1
+token=$2
 repo=dcso_arrests
 file=arrests.csv
 
@@ -34,3 +36,4 @@ else
         echo $DATA  | curl -X PUT -u "$user:$token" -d @- https://api.github.com/repos/$user/$repo/contents/$file
 
 fi
+
