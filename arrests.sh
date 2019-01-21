@@ -32,7 +32,7 @@ then
 ## If the versions are different, upload the new version to github
 else
 
-        DATA='{"message": "update [skip ci]", "content": '"$local_file"', "sha": '"$github_hash"'}'
+        DATA='{"message": "update", "content": '"$local_file"', "sha": '"$github_hash"'}'
         echo $DATA  | curl -X PUT -u "$user:$token" -d @- https://api.github.com/repos/$user/$repo/contents/$file
 
 fi
