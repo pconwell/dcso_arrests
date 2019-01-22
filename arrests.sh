@@ -33,7 +33,7 @@ then
 ## If the versions are different, upload the new version to github
 else
 
-        if [ "$TRAVIS_EVENT_TYPE" == "cron"];
+        if [ "$TRAVIS_EVENT_TYPE" == "cron" ];
 	
 	then
 	
