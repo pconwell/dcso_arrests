@@ -23,4 +23,4 @@ ENV GITHUB_USER abcd
 ENV CI_TYPE null
  
 # Run script when the container launches
-CMD /app/arrests.sh $GITHUB_USER $GITHUB_KEY
+CMD /app/arrests.sh $GITHUB_USER $GITHUB_KEY $CI_TYPE
