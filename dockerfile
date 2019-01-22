@@ -20,6 +20,7 @@ RUN chmod 777 arrests.sh
 # dockerfile requires defaults, so include dummy data here
 ENV GITHUB_KEY 1234
 ENV GITHUB_USER abcd
-
+ENV CI_TYPE null
+ 
 # Run script when the container launches
 CMD /app/arrests.sh $GITHUB_USER $GITHUB_KEY
