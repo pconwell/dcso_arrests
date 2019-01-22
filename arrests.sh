@@ -12,7 +12,7 @@ repo=dcso_arrests
 file=arrests.csv
 
 echo $user
-echo $TRAVIS_EVENT_TYPE
+echo $ci_type
 
 ## Get the current file from github so we can check for changes
 github_file='"'`curl --silent --no-buffer --request GET --user "$user:$token" https://api.github.com/repos/$user/$repo/contents/$file | jq -r '.content' | tr -d '\n'`'"'
