@@ -7,6 +7,7 @@ python3 /app/app.py
 ## ./arrests.sh user key
 user=$1
 token=$2
+ci_type=$3
 repo=dcso_arrests
 file=arrests.csv
 
@@ -33,7 +34,7 @@ then
 ## If the versions are different, upload the new version to github
 else
 
-        if [ "$TRAVIS_EVENT_TYPE" == "cron" ];
+        if [ "$ci_type" == "cron" ];
 	
 	then
 	
